@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ites.crud.dao.EmrMapper">
+
+
+   <resultMap id="BaseResultMap" type="com.ites.crud.bean.EMR_IP_REGISTER">
+      <id column="REG_NO" jdbcType="VARCHAR" property="REGNO" />
+      <result column="NAME" jdbcType="VARCHAR" property="NAME" />
+      <result column="SEX" jdbcType="VARCHAR" property="SEX" />
+      <result column="MZ" jdbcType="VARCHAR" property="MZ" />
+      <result column="age" jdbcType="VARCHAR" property="AGE" />
+      <result column="TAB_NO" jdbcType="VARCHAR" property="TABNO" />
+       <result column="BC_TITLE" jdbcType="VARCHAR" property="BCTITLE"/>
+       <result column="BC_TIME" jdbcType="VARCHAR" property="BCTIME"/>
+      <result column="STUC_TEXT" jdbcType="VARCHAR" property="STUCTEXT" />
+       <result column = "STUC_NAME" jdbcType="VARCHAR" property = "STUCTNAME"/>
+      <result column="MZ_FLAG" jdbcType="VARCHAR" property="MZFLAG" />
+   </resultMap>
+
+   <!--<resultMap id="BaseResultMap" type="com.ites.crud.bean.EMR_IP_REGISTER">
+      <id column="REG_NO" jdbcType="VARCHAR" property="regno" />
+      <result column="NAME" jdbcType="VARCHAR" property="name" />
+      <result column="SEX" jdbcType="VARCHAR" property="sex" />
+      <result column="age" jdbcType="VARCHAR" property="age" />
+      <result column="TAB_NO" jdbcType="VARCHAR" property="tabno" />
+      <result column="STUC_TEXT" jdbcType="VARCHAR" property="stuctext" />
+      <result column="MZ_FLAG" jdbcType="VARCHAR" property="mzflag" />
+   </resultMap>-->
+
+
+   <!--查询-->
+   <select id="findEmr" parameterType="EMR_IP_REGISTER" resultType="EMR_IP_REGISTER">
+      /*select distinct a.REG_NO,a.NAME,a.AGE from EMR_IP_REGISTER a left join EMR_PATIENT_BL_OTHER_STRUCT b on a.REG_NO=b.REG_NO*/
+      select distinct a.IP_Time,a.REG_NO,a.NAME,a.AGE,a.SEX,ip_no,ip_cnt from EMR_IP_REGISTER a, EMR_PATIENT_BL_OTHER_STRUCT b where a.REG_NO = b.REG_NO ORDER BY a.REG_NO DESC
+   </select>
+
+   <select id="findOneById" parameterType="string" resultType="EMR_IP_REGISTER">
+       select distinct REG_NO ,MZ  from view_EMR where REG_NO = #{REGNO}
+   </select>
+
+    <select id="findOneByName"  resultMap="BaseResultMap">
+        <!--select REG_NO,NAME,SEX ,AGE from EMR_IP_REGISTER where REG_NO like '%'+#{REGNO}+'%'-->
+        /*select REG_NO,NAME,SEX ,AGE from EMR_IP_REGISTER*/
+--         select distinct a.REG_NO,a.NAME,a.AGE,a.SEX,ip_no,ip_cnt, a.IP_Time from EMR_IP_REGISTER a, EMR_PATIENT_BL_OTHER_STRUCT b where a.REG_NO = b.REG_NO
+        select distinct a.REG_NO,a.NAME,a.AGE,a.SEX,ip_no,ip_cnt, a.IP_Time ,c.sfzh from his_t..EMR_IP_REGISTER a
+        left join  his_t..EMR_PATIENT_BL_OTHER_STRUCT b on a.REG_NO = b.REG_NO
+        left   join zyc_db..zy_hzjbqkb c on   a.REG_NO = rtrim(c.bah)+'_0'+CAST (c.zycs as varchar(2))
+        left join zyc_db..zy_hzzyqkb d on a.REG_NO = rtrim(d.bah)+'_0'+CAST (d.zycs as varchar(2))
+        WHERE 1=1
+        <if test="regno != null and regno != ''">
+            and a.REG_NO like  '%'+#{regno}+'%'
+        </if>
+        <if test="name != null and name != ''">
+            and a.NAME like '%'+#{name}+'%'
+        </if>
+        <if test="age != null and age != ''">
+            and c.sfzh like '%'+#{age}+'%'
+        </if>
+    </select>
+
+
+   <select id="findOneByText" parameterType="com.ites.crud.bean.EMR_IP_REGISTER" resultMap="BaseResultMap">
+        select BC_TITLE,BC_TIME,STUC_NAME,STUC_TEXT  from view_EMR where REG_NO = #{regno}  and  MZ = #{mz} order by BL_ROW,ROW_NO
+   </select>
+
+    <select id="findOneByText_t" parameterType="com.ites.crud.bean.EMR_IP_REGISTER" resultMap="BaseResultMap">
+        select BC_TITLE,BC_TIME,STUC_NAME,STUC_TEXT  from view_EMR where REG_NO = #{regno}  and  MZ = #{mz} order by BL_ROW,ROW_NO
+   </select>
+
+</mapper>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ites.crud.dao.PhotoMapper">
+    <select id="findPhoto" parameterType="Photo" resultType="Photo">
+        select  bah ,zycs,lbmc,lj from zyc_db..zy_hzscweblb where bah = #{bah} and zycs = #{zycs}
+    </select>
+</mapper>

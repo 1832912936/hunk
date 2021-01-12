@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ites.crud.dao.YzMapper">
+    <resultMap id="BaseResultMap" type="com.ites.crud.bean.ZY_CQYZ_ZXZ">
+        <result column="yf_tj" jdbcType="VARCHAR" property="yftj" />
+        <result column="yf_pc" jdbcType="VARCHAR" property="yfpc" />
+        <result column="pcmc" jdbcType="VARCHAR" property="pcmc" />
+    </resultMap>
+    <select id="findYz" parameterType="ZY_CQYZ_ZXZ" resultType="ZY_CQYZ_ZXZ">
+        select distinct a.yzbz,a.sxsj,a.xmmc,a.jl,a.jldw,a.yf_tj,
+        a.yf_pc,a.pcmc,a.yyms,a.ystssm,a.ysdm,a.hdr1,a.tzsj,a.tzys,
+        a.tzry,a.bah from view_zy_cqyz_zxz a,view_hzjbqkb_2 b
+        where a.bah = b.bah and a.zycs = b.zycs and b.bah = #{bah} and b.zycs = #{zycs} order by a.sxsj desc
+    </select>
+
+    <select id="findYzCq" parameterType="ZY_CQYZ_ZXZ" resultType="ZY_CQYZ_ZXZ">
+        select distinct a.yzbz,a.sxsj,a.xmmc,a.jl,a.jldw,a.yf_tj,
+        a.yf_pc,a.pcmc,a.yyms,a.ystssm,a.ysdm,a.hdr1,a.tzsj,a.tzys,
+        a.tzry,a.bah from view_zy_cqyz_zxz a,view_hzjbqkb_2 b
+        where a.bah = b.bah and a.zycs = b.zycs  and yzbz = '长期' and b.bah = #{bah} and b.zycs = #{zycs} order by a.sxsj desc
+    </select>
+    <select id="findYzLs" parameterType="ZY_CQYZ_ZXZ" resultType="ZY_CQYZ_ZXZ">
+        select distinct a.yzbz,a.sxsj,a.xmmc,a.jl,a.jldw,a.yf_tj,
+        a.yf_pc,a.pcmc,a.yyms,a.ystssm,a.ysdm,a.hdr1,a.tzsj,a.tzys,
+        a.tzry,a.bah from view_zy_cqyz_zxz a,view_hzjbqkb_2 b
+        where a.bah = b.bah and a.zycs = b.zycs  and yzbz = '临时' and b.bah = #{bah} and b.zycs = #{zycs} order by a.sxsj desc
+    </select>
+
+</mapper>

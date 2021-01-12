@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ites.crud.dao.ZyYpXmHzMapper">
+    <select id="findFyqd" parameterType="ZyYpXmHz" resultType="ZyYpXmHz">
+          select bah,zycs,kjksmc,xmmc,gg,lsdw,lsj,sl,lsje,sfsj from zyc_db..zy_yp_xm_hz where bah = #{bah} and zycs = #{zycs} order by sfsj
+    </select>
+
+
+
+
+</mapper>

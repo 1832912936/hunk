@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.ites.crud.dao.HzqkbMapper">
+
+
+    <resultMap id="BaseResultMapHzqkbxx" type="com.ites.crud.bean.Hzqkbxx">
+        <id column="bah" jdbcType="VARCHAR" property="bah" />
+        <result column="hzxm" jdbcType="VARCHAR" property="hzxm" />
+        <result column="sfzh" jdbcType="VARCHAR" property="sfzh" />
+        <result column="xb" jdbcType="VARCHAR" property="xb" />
+        <result column="gjdz" jdbcType="VARCHAR" property="gjdz" />
+        <result column="nl_y" jdbcType="VARCHAR" property="nly" />
+        <result column="gzdw" jdbcType="VARCHAR" property="gzdw"/>
+        <result column="hf" jdbcType="VARCHAR" property="hf"/>
+        <result column="minzu" jdbcType="VARCHAR" property="minzu" />
+        <result column="minzumc" jdbcType="VARCHAR" property="minzumc" />
+        <result column = "ryrq" jdbcType="VARCHAR" property = "ryrq"/>
+        <result column="zy" jdbcType="VARCHAR" property="zy" />
+        <result column="yjs_Zsl" jdbcType="VARCHAR" property="yjsZsl"/>
+    </resultMap>
+
+    <!--查询入院记录-->
+    <select id="findRybl" parameterType="Hzqkbxx" resultType="Hzqkbxx">
+       select * from View_Hzjbqkb_rybl where bah = #{bah}
+    </select>
+
+</mapper>

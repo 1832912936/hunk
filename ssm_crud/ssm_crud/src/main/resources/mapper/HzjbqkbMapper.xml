@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.ites.crud.dao.HzjbqkbMapper">
+
+    <!--查询-->
+    <select id="findAll" parameterType="Hzjbqkb" resultType="Hzjbqkb">
+        /*select
+        a.sflb,a.zycs,a.jiankangka,a.sjzycs,a.bah,xm,xb,csrq,nl_num,nldw,nl_char,gj,nl_buzu,xinshenger_tj,xinshenger_rytj,csss,cssx,jg_ss,jg_sx,mz,sfzh,zy,hf,xiandizhi_dz,xiandizhi_dh,a.xiandizhi_yb,a.hk_dz,
+        a.hk_yb,a.gzdw_name,a.gzdw_dh,a.gzdw_yb,a.lxr_name,a.lxr_gx,a.lxr_dz,a.lxr_dh,a.rytujing,a.zllb,a.ryrq,a.ryks,a.bf_ry,a.zkks,a.cyrq,a.cyks,a.bf_cy,a.zyts,a.zyts_dw,a.mzzd_zy,a.mzzd_zy_icd10,a.mzzd,a.mzzd_icd10,a.sslclj,a.syyljgzyzj,
+        a.syzyzlsb,a.syzyzljs,a.bzsh,a.ryqk,a.ryqzrq,a.ryqzts,a.sszdwbyy,a.yngrmc,
+        a.blzd,a.blzd_icd10,a.xx_bh,a.xx_sxfy,a.xx_rh,a.sjbz,a.liyuanfangshi,a.liyuan_jigou,a.ywgm_hbsag,a.ywgms,a.cy31ry,a.cy31ry_md,a.hunmi_ryr,a.hunmi_rys,a.hunmi_ryf,a.hunmi_cyr,a.hunmi_cys,a.hunmi_cyf,a.ys_zr,
+        a.ys_fzr,a.ys_zz,a.ys_zy,a.ys_yjs,a.ys_jx,a.ys_sx,a.bmry,a.bazl,a.bazl_zkys,a.bzzl_zkhs,a.bzzl_zkrq,a.zdfh_mzcy,a.zdfh_rycy,a.zdfh_sqsh,a.zdfh_lcbl,a.zdfh_fsbl,a.qjcs,a.qjcgcs
+        from view_hzjbqkb_2 a*/
+
+        select distinct
+        a.sflb,a.zycs,a.jiankangka,a.sjzycs,a.bah,xm,xb,csrq,nl_num,nldw,nl_char,gj,nl_buzu,xinshenger_tj,xinshenger_rytj,csss,cssx,jg_ss,jg_sx,mz,sfzh,zy,hf,xiandizhi_dz,xiandizhi_dh,a.xiandizhi_yb,a.hk_dz,
+        a.hk_yb,a.gzdw_name,a.gzdw_dh,a.gzdw_yb,a.lxr_name,a.lxr_gx,a.lxr_dz,a.lxr_dh,a.rytujing,a.zllb,a.ryrq,a.ryks,a.bf_ry,a.zkks,a.cyrq,a.cyks,a.bf_cy,a.zyts,a.zyts_dw,a.mzzd_zy,a.mzzd_zy_icd10,a.mzzd,a.mzzd_icd10,a.sslclj,a.syyljgzyzj,
+        a.syzyzlsb,a.syzyzljs,a.bzsh,a.ryqk,a.ryqzrq,a.ryqzts,a.sszdwbyy,a.yngrmc,
+        a.blzd,a.blzd_icd10,a.xx_bh,a.xx_sxfy,a.xx_rh,a.sjbz,a.liyuanfangshi,a.liyuan_jigou,a.ywgm_hbsag,a.ywgms,a.cy31ry,a.cy31ry_md,a.hunmi_ryr,a.hunmi_rys,a.hunmi_ryf,a.hunmi_cyr,a.hunmi_cys,a.hunmi_cyf,a.ys_zr,
+        a.ys_fzr,a.ys_zz,a.ys_zy,a.ys_yjs,a.ys_jx,a.ys_sx,a.bmry,a.bazl,a.bazl_zkys,a.bzzl_zkhs,a.bzzl_zkrq,a.zdfh_mzcy,a.zdfh_rycy,a.zdfh_sqsh,a.zdfh_lcbl,a.zdfh_fsbl,a.qjcs,a.qjcgcs
+        from view_hzjbqkb_2 a,view_EMR_IP_REGISTER b where a.bah = b.ip_no and b.ip_no = #{ipNo}
+    </select>
+
+</mapper>

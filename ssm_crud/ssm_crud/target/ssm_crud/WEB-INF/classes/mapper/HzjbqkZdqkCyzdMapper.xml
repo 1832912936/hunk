@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.ites.crud.dao.HzjbqkZdqkCyzdMapper">
+
+    <!--查询-->
+    <select id="findAllByBah" parameterType="HzjbqkZdqkCyzd" resultType="HzjbqkZdqkCyzd">
+        select distinct
+        view_hzjbqk_zdqk_cyzd_1.bz,zd_icd10,zd_mc,zlxg,view_hzjbqk_zdqk_cyzd_1.ryqk
+        from view_hzjbqk_zdqk_cyzd_1,view_hzjbqkb_2
+        where view_hzjbqk_zdqk_cyzd_1.bah = view_hzjbqkb_2.bah
+        and view_hzjbqk_zdqk_cyzd_1.zycs = view_hzjbqkb_2.zycs
+        and view_hzjbqkb_2.bah = #{bah}
+        and view_hzjbqkb_2.zycs = #{zycs}
+   </select>
+
+</mapper>

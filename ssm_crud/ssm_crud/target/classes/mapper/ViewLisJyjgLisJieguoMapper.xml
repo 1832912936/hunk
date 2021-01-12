@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ites.crud.dao.ViewLisJyjgLisJieguoMapper">
+    <select id="findjj" parameterType="ViewLisJyjgLisJieguo" resultType="ViewLisJyjgLisJieguo">
+        select v_xmmc,v_ywmc,v_jyjg,v_dw,v_jgzt,v_ckz,v_ckzlx,v_bz,v_brbm from MZ_DB..view_lis_jyjg where v_brbm=#{vBrbm}
+    </select>
+</mapper>
